@@ -1,5 +1,6 @@
 package org.whatsapp.springboot.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,18 +28,30 @@ public class WhatsAppService {
                                 .build();
         }
 
-        public String broadCastMessage(List<String> toPhones, String message) {
-                try {
-                        for (String phone : toPhones) {
-                                sendIndividual(phone, message);
-                                System.out.println("\nSent The message to : " + phone + "\nMoving to the next...");
+        public List<Object> broadCastMessage(List<String> toPhones, String message) {
+                List<Object> results = new ArrayList();
+                
+                for (String phone : toPhones) {
+                        try {
+                            WhatsAppSendResponse response = sendIndividual(phone, message).block();
+                            results.add(Map.of(
+                                        "phone", phone,
+                                        "success", true,
+                                        "response", response
+                                ));
+                                System.out.println("Send Message to: " + phone);
+                                System.out.println("Moving on to the next...");
+                        } catch (Exception e) {
+                                results.add(Map.of(
+                                        "phone", phone,
+                                        "success", false,
+                                        "error", e.getMessage()
+                                ));
+                                System.err.println("Something went Wrong for : " + phone + " " + e.getMessage());
                         }
-                        System.out.println("\nSuccessfully Sent the message to all the phone numbers");
-                        return "Successfully Sent the message to all the phone numbers";
-                } catch (Exception e) {
-                        System.out.println("\nSometing Went Wrong : " + e.getLocalizedMessage());
-                        return "Someting Went Wrong : " + e.getLocalizedMessage();
                 }
+
+                return results;
         }
 
         public Mono<WhatsAppSendResponse> sendIndividual(String toPhone, String message) {
@@ -49,7 +62,6 @@ public class WhatsAppService {
                                 "template", Map.of(
                                                 "name", message,
                                                 "language", Map.of("code", properties.getLanguageCode())));
-
                 return webClient.post()
                                 .uri("/{version}/{phoneNumberId}/messages",
                                                 properties.getApiVersion(),
