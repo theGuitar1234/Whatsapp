@@ -1,0 +1,22 @@
+spring:
+  config:
+    import:
+      optional:file:.env[.properties]
+
+server:
+  port: 8081
+
+whatsapp:
+  base-url: https://graph.facebook.com
+  api-version: v25.0
+  token: ${WHATSAPP_TOKEN:}
+  phone-number-id: ${PHONE_NUMBER_ID:}
+  hello-world-template: hello_world
+  language-code: en_US
+
+otp:
+  ttl-minutes: 5
+  max-attempts: 5
+
+webhook:
+  verify-token: demo_verify_token_123

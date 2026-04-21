@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "whatsapp.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'whatsapp.base-url'"
+  },
+  {
+    "name": "whatsapp.api-version",
+    "type": "java.lang.String",
+    "description": "A description for 'whatsapp.api-version'"
+  },
+  {
+    "name": "whatsapp.token",
+    "type": "java.lang.String",
+    "description": "A description for 'whatsapp.token'"
+  },
+  {
+    "name": "whatsapp.phone-number-id",
+    "type": "java.lang.String",
+    "description": "A description for 'whatsapp.phone-number-id'"
+  },
+  {
+    "name": "whatsapp.hello-world-template",
+    "type": "java.lang.String",
+    "description": "A description for 'whatsapp.hello-world-template'"
+  },
+  {
+    "name": "whatsapp.language-code",
+    "type": "java.lang.String",
+    "description": "A description for 'whatsapp.language-code'"
+  },
+  {
+    "name": "otp.ttl-minutes",
+    "type": "java.lang.String",
+    "description": "A description for 'otp.ttl-minutes'"
+  },
+  {
+    "name": "otp.max-attempts",
+    "type": "java.lang.String",
+    "description": "A description for 'otp.max-attempts'"
+  },
+  {
+    "name": "webhook.verify-token",
+    "type": "java.lang.String",
+    "description": "A description for 'webhook.verify-token'"
+  }
+]}
