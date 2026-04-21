@@ -2,6 +2,7 @@ package org.whatsapp.springboot.controllers;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,11 +32,11 @@ public class WhatsAppController {
     }
 
     @PostMapping("/broadcast")
-    public String broadcast(
+    public ResponseEntity<?> broadcast(
         @RequestParam List<String> toPhones,
         @RequestParam @NotBlank String message
     ) {
-        return whatsAppService.broadCastMessage(toPhones, message);
+        return ResponseEntity.ok(whatsAppService.broadCastMessage(toPhones, message));
     }
     
 }

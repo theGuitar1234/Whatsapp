@@ -11,7 +11,8 @@ whatsapp:
   api-version: v25.0
   token: ${WHATSAPP_TOKEN:}
   phone-number-id: ${PHONE_NUMBER_ID:}
-  hello-world-template: hello_world
+  hello-world-template: Hello World!
+  broadcast-world-template: Salam,%20Java%20Backend%20qrupundan%20yaz%C4%B1ram.%0ADersl%C9%99r%C9%99%20qo%C5%9Fulun,%20ders%20ba%C5%9Flamazdan%20%C9%99vv%C9%99l%20m%C9%99n%20%C5%9F%C9%99xsid%C9%99n%20ham%C4%B1ya%20yaz%C4%B1ram.%0A%C6%8Fg%C9%99r%20qo%C5%9Fula%20bilm%C9%99y%C9%99c%C9%99ksinizs%C9%99,%20*M%C6%8FN%C6%8F%20S%C6%8FB%C6%8FBINI%20ELE%20BURADA%20DEYIN*%0A*Bu%20avto%20mesajd%C4%B1r,%20ham%C4%B1ya%20gonderirem,%20eger%20onsuzda%20qosulursunuzsa%20yada%20sebebini%20demisdinizse,%20bu%20mesaja%20cavab%20vermeye%20bilersiniz*
   language-code: en_US
 
 otp:

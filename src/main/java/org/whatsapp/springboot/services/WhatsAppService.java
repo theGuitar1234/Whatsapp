@@ -31,10 +31,12 @@ public class WhatsAppService {
                 try {
                         for (String phone : toPhones) {
                                 sendIndividual(phone, message);
-                                System.out.println("Sent The message to : " + phone + "\nMoving to the next...");
+                                System.out.println("\nSent The message to : " + phone + "\nMoving to the next...");
                         }
+                        System.out.println("\nSuccessfully Sent the message to all the phone numbers");
                         return "Successfully Sent the message to all the phone numbers";
                 } catch (Exception e) {
+                        System.out.println("\nSometing Went Wrong : " + e.getLocalizedMessage());
                         return "Someting Went Wrong : " + e.getLocalizedMessage();
                 }
         }
